@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Poetry Android MVP</string>
+    <string name="activity_main">Authors</string>
+    <string name="activity_about">About</string>
+
+    <string name="error.dialog.positive">OK</string>
+    <string name="error.message.title.oops">Oops...</string>
+    <string name="error.message.api">Error while processing your request</string>
+    <string name="error.message.no.internet">No Internet Connection</string>
+    <string name="text.main.no.authors">No Authors</string>
 </resources>

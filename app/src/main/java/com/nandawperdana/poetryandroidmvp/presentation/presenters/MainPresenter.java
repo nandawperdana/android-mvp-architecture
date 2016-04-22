@@ -1,7 +1,7 @@
-package com.nandawperdana.poetryandroidmvp.presenters;
+package com.nandawperdana.poetryandroidmvp.presentation.presenters;
 
-import com.nandawperdana.poetryandroidmvp.presenters.base.BasePresenter;
-import com.nandawperdana.poetryandroidmvp.ui.BaseView;
+import com.nandawperdana.poetryandroidmvp.presentation.base.BasePresenter;
+import com.nandawperdana.poetryandroidmvp.presentation.base.BaseView;
 import com.nandawperdana.poetryandroidmvp.ui.main.mvp.MainModel;
 
 /**
@@ -14,7 +14,10 @@ public interface MainPresenter extends BasePresenter {
          * This enum is used for determine the current state of this screen
          */
         enum ViewState {
-            IDLE, LOADING, ERROR
+            IDLE, LOADING,
+            LOAD_GET_AUTHORS, SHOW_GET_AUTHORS,
+            LOAD_GET_AUTHOR_POETS, SHOW_GET_AUTHOR_POETS,
+            ERROR
         }
 
         /**
@@ -34,6 +37,7 @@ public interface MainPresenter extends BasePresenter {
 
     /**
      * This method is used for presenting the current state of this screen
+     *
      * @param state
      */
     void presentState(MainView.ViewState state);

@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- color scheme -->
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="dark">#363238</color>
+    <color name="primaryDark">#1D1926</color>
+
+    <!-- Color Pallete -->
+    <color name="white"         >#FFFFFF</color>
+    <color name="scrim"         >#B3000000</color>
+    <color name="squash"        >#f5a623</color>
+    <color name="olive_brown"   >#6b4506</color>
+    <color name="warm_grey"     >#878787</color>
+    <color name="bone_white"    >#fafafa</color>
+    <color name="pink"          >#FC4482</color>
+
+    <!-- Opacity Cheatsheet
+        100% — FF
+        95% — F2
+        90% — E6
+        85% — D9
+        80% — CC
+        75% — BF
+        70% — B3
+        65% — A6
+        60% — 99
+        55% — 8C
+        50% — 80
+        45% — 73
+        40% — 66
+        35% — 59
+        30% — 4D
+        25% — 40
+        20% — 33
+        15% — 26
+        10% — 1A
+        5% — 0D
+        0% — 00
+    -->
 </resources>

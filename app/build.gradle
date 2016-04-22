@@ -14,6 +14,8 @@ android {
     buildTypes {
         debug {
             buildConfigField "boolean", "BUILD_RELEASE", "false"
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-DEBUG'
         }
         release {
             minifyEnabled false
@@ -44,8 +46,14 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
     compile 'com.squareup.retrofit2:converter-gson:2.0.1'
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
 
     // test
     testCompile 'junit:junit:4.12'
+
+    // added library
+    compile('com.github.afollestad.material-dialogs:core:0.8.5.8@aar') {
+        transitive = true
+    }
 }

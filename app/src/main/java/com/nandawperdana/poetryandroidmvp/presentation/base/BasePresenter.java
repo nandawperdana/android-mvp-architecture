@@ -1,4 +1,4 @@
-package com.nandawperdana.poetryandroidmvp.presenters.base;
+package com.nandawperdana.poetryandroidmvp.presentation.base;
 
 /**
  * Created by nandawperdana on 4/21/2016.

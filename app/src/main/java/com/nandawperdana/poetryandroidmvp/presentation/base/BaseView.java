@@ -1,4 +1,4 @@
-package com.nandawperdana.poetryandroidmvp.ui;
+package com.nandawperdana.poetryandroidmvp.presentation.base;
 
 /**
  * Created by nandawperdana on 4/21/2016.
@@ -23,7 +23,8 @@ public interface BaseView {
     /**
      * This method is used for showing error messages on the UI via dialog.
      *
+     * @param title
      * @param message
      */
-    void showError(String message);
+    void showError(String title, String message);
 }
