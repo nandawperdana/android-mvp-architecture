@@ -1,23 +1,42 @@
 package com.nandawperdana.poetryandroidmvp.ui.main;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.nandawperdana.poetryandroidmvp.R;
 import com.nandawperdana.poetryandroidmvp.presentation.presenters.MainPresenter;
+import com.nandawperdana.poetryandroidmvp.ui.about.AboutActivity;
+import com.nandawperdana.poetryandroidmvp.ui.main.adapter.AuthorAdapter;
 import com.nandawperdana.poetryandroidmvp.ui.main.mvp.MainModel;
 import com.nandawperdana.poetryandroidmvp.ui.main.mvp.MainPresenterImpl;
 import com.nandawperdana.poetryandroidmvp.utils.Enums;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements MainPresenter.MainView {
     private MainPresenter mPresenter;
     private MainModel mModel;
+
+    @Bind(R.id.textview_main)
+    TextView textView;
+    //    @Bind(R.id.swiperefresh_main)
+//    SwipeRefreshLayout swipeRefreshLayout;
+    @Bind(R.id.recyclerview_main)
+    RecyclerView recyclerView;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +49,16 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Mai
 
     private void initLayout() {
         ButterKnife.bind(this);
+        this.progressDialog = new ProgressDialog(MainActivity.this);
 
         init();
+
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage(getString(R.string.message_loading));
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        recyclerView.setAdapter(new AuthorAdapter(doRetrieveModel().getListAuthors()));
     }
 
     private void init() {
@@ -58,6 +85,24 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Mai
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_main_about:
+                mPresenter.presentState(ViewState.OPEN_ACTIVITY_ABOUT);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
     public void showState(MainPresenter.MainView.ViewState viewState) {
         switch (viewState) {
             case IDLE:
@@ -74,6 +119,9 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Mai
                 showGetAuthorPoets();
                 mPresenter.presentState(ViewState.IDLE);
                 break;
+            case OPEN_ACTIVITY_ABOUT:
+                openActivityAbout();
+                break;
             case ERROR:
                 showErrorDialog(mModel.getErrorState());
                 break;
@@ -87,6 +135,9 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Mai
 
     @Override
     public void showProgress(boolean flag) {
+        if (flag)
+            progressDialog.show();
+        else progressDialog.dismiss();
     }
 
     @Override
@@ -124,20 +175,32 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Mai
      * show AuthorsModel to UI
      */
     private void showGetAuthors() {
+        // set API response to model
+        doRetrieveModel().setListAuthors();
 
+        // show the data
+        recyclerView.getAdapter().notifyDataSetChanged();
+    }
+
+    private void openActivityAbout() {
+        Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+        startActivity(intent);
     }
 
     /**
      * show error message
+     *
      * @param state
      */
     private void showErrorDialog(Enums.ErrorState state) {
         switch (state) {
             case API:
-                showError(getString(R.string.error_message_title_oops), getString(R.string.error_message_api));
+                showError(getString(R.string.error_message_title_oops),
+                        getString(R.string.error_message_api));
                 break;
             case NO_INTERNET:
-                showError(getString(R.string.error_message_title_oops), getString(R.string.error_message_no_internet));
+                showError(getString(R.string.error_message_title_oops),
+                        getString(R.string.error_message_no_internet));
                 break;
         }
     }

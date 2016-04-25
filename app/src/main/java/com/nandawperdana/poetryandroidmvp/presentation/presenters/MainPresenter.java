@@ -17,7 +17,7 @@ public interface MainPresenter extends BasePresenter {
             IDLE, LOADING,
             LOAD_GET_AUTHORS, SHOW_GET_AUTHORS,
             LOAD_GET_AUTHOR_POETS, SHOW_GET_AUTHOR_POETS,
-            ERROR
+            OPEN_ACTIVITY_ABOUT, ERROR
         }
 
         /**

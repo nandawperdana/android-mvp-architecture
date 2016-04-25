@@ -66,6 +66,7 @@ public class APICallManager {
         else
             setAuthorizationKey(Constants.Keys.MASHAPE_KEYS_TESTING);
 
+        // registering API endpoint manager
         this.authorManager = new AuthorManager();
     }
 

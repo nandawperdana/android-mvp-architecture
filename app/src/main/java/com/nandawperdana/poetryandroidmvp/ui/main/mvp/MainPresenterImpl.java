@@ -48,6 +48,9 @@ public class MainPresenterImpl implements MainPresenter, APICallListener {
             case SHOW_GET_AUTHOR_POETS:
                 mView.showState(MainView.ViewState.SHOW_GET_AUTHOR_POETS);
                 break;
+            case OPEN_ACTIVITY_ABOUT:
+                mView.showState(MainView.ViewState.OPEN_ACTIVITY_ABOUT);
+                break;
             case ERROR:
                 mView.showState(MainView.ViewState.ERROR);
                 break;

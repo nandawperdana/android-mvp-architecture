@@ -3,6 +3,8 @@ package com.nandawperdana.poetryandroidmvp.ui.about;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
@@ -12,12 +14,15 @@ import com.nandawperdana.poetryandroidmvp.presentation.presenters.AboutPresenter
 import com.nandawperdana.poetryandroidmvp.ui.about.mvp.AboutModel;
 import com.nandawperdana.poetryandroidmvp.ui.about.mvp.AboutPresenterImpl;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class AboutActivity extends AppCompatActivity implements AboutPresenter.AboutView {
-
     private AboutPresenter mPresenter;
     private AboutModel mModel;
+
+    @Bind(R.id.textview_about)
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,17 @@ public class AboutActivity extends AppCompatActivity implements AboutPresenter.A
     private void init() {
         this.mPresenter = new AboutPresenterImpl(this);
         this.mModel = new AboutModel();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
@@ -92,6 +108,5 @@ public class AboutActivity extends AppCompatActivity implements AboutPresenter.A
     }
 
     private void showAbout() {
-
     }
 }

@@ -8,4 +8,5 @@
     <string name="error.message.api">Error while processing your request</string>
     <string name="error.message.no.internet">No Internet Connection</string>
     <string name="text.main.no.authors">No Authors</string>
+    <string name="message.loading">Loading...</string>
 </resources>
