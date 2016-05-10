@@ -13,9 +13,11 @@ import com.nandawperdana.poetryandroidmvp.R;
 import com.nandawperdana.poetryandroidmvp.presentation.presenters.AboutPresenter;
 import com.nandawperdana.poetryandroidmvp.ui.about.mvp.AboutModel;
 import com.nandawperdana.poetryandroidmvp.ui.about.mvp.AboutPresenterImpl;
+import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AboutActivity extends AppCompatActivity implements AboutPresenter.AboutView {
     private AboutPresenter mPresenter;
@@ -23,6 +25,8 @@ public class AboutActivity extends AppCompatActivity implements AboutPresenter.A
 
     @Bind(R.id.textview_about)
     TextView textView;
+    @Bind(R.id.imageview_about)
+    CircleImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,5 +112,11 @@ public class AboutActivity extends AppCompatActivity implements AboutPresenter.A
     }
 
     private void showAbout() {
+        String url = "http://graph.facebook.com/1399656618/picture?type=square";
+        Picasso.with(AboutActivity.this)
+                .load(url)
+                .error(R.drawable.ic_blank_avatar)
+                .placeholder(R.drawable.ic_blank_avatar)
+                .into(imageView);
     }
 }

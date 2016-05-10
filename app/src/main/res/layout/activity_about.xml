@@ -5,6 +5,16 @@
     android:layout_height="match_parent"
     tools:context="com.nandawperdana.poetryandroidmvp.ui.about.AboutActivity">
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageview_about"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:gravity="center_vertical"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_blank_avatar"
+        android:layout_above="@+id/textview_about"
+        android:layout_centerHorizontal="true" />
+
     <TextView
         android:id="@+id/textview_about"
         android:layout_width="wrap_content"

@@ -35,6 +35,7 @@ public class MainModel implements Serializable {
     }
 
     public void setListAuthors() {
+        getListAuthors().clear();
         for (String data : authorsDomain.getModel().getAuthors()) {
             getListAuthors().add(data);
         }

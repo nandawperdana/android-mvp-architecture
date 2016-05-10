@@ -52,13 +52,12 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Mai
         this.progressDialog = new ProgressDialog(MainActivity.this);
 
         init();
-
         progressDialog.setCancelable(false);
-        progressDialog.setMessage(getString(R.string.message_loading));
+        progressDialog.setMessage(getResources().getString(R.string.message_loading));
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-        recyclerView.setAdapter(new AuthorAdapter(doRetrieveModel().getListAuthors()));
+        recyclerView.setAdapter(new AuthorAdapter(doRetrieveModel().getListAuthors(), MainActivity.this));
     }
 
     private void init() {

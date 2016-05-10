@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nandawperdana.poetryandroidmvp.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -42,7 +43,7 @@ public class AuthorAdapter extends RecyclerView.Adapter<AuthorAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.bindView(listAuthor.get(position).toString());
+        holder.bindView(mContext, listAuthor.get(position).toString());
     }
 
     @Override
@@ -65,15 +66,16 @@ public class AuthorAdapter extends RecyclerView.Adapter<AuthorAdapter.ViewHolder
             ButterKnife.bind(this, view);
         }
 
-        public void bindView(String name) {
+        public void bindView(Context context, String name) {
             if (name != null)
                 textView.setText(name);
 
-//            Picasso.with(context)
-//                    .load(logoUrl)
-//                    .error(R.drawable.ic_blank_avatar)
-//                    .placeholder(R.drawable.ic_blank_avatar)
-//                    .into(imageView);
+            String url = "http://graph.facebook.com/1399656618/picture?type=square";
+            Picasso.with(context)
+                    .load(url)
+                    .error(R.drawable.ic_blank_avatar)
+                    .placeholder(R.drawable.ic_blank_avatar)
+                    .into(imageView);
         }
     }
 }
