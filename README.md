@@ -1,5 +1,6 @@
 # android-mvp-architecture
 ![clean architecture](https://blog.8thlight.com/assets/posts/2012-08-13-the-clean-architecture/CleanArchitecture-81565aba46f035911a5018e77a0f2d4e.jpg)
+
 In this sample project includes some of useful libraries for Android, such as:
 - [Retrofit](http://square.github.io/retrofit/): A type-safe REST client for Android which intelligently maps an API into a client interface using annotations.
 - [Picasso](http://square.github.io/picasso/): A powerful image downloading and caching library for Android.
