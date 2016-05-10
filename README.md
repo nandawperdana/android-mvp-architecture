@@ -1,5 +1,5 @@
 # android-mvp-architecture
-![]({{site.baseurl}}/https://blog.8thlight.com/assets/posts/2012-08-13-the-clean-architecture/CleanArchitecture-81565aba46f035911a5018e77a0f2d4e.jpg)
+![clean architecture](https://blog.8thlight.com/assets/posts/2012-08-13-the-clean-architecture/CleanArchitecture-81565aba46f035911a5018e77a0f2d4e.jpg)
 In this sample project includes some of useful libraries for Android, such as:
 - [Retrofit](http://square.github.io/retrofit/): A type-safe REST client for Android which intelligently maps an API into a client interface using annotations.
 - [Picasso](http://square.github.io/picasso/): A powerful image downloading and caching library for Android.
@@ -15,9 +15,13 @@ Before we go through to learn this architecture, I hope you've understand about 
 - **Independent of Database.**
 - **Independent of any external agency.**
 
+## Sample API
+This project using sample API from Mashape Free API: [Poetry DB](https://market.mashape.com/thundercomb/poetry-db#)
+
 ## Links, Resources and References
 1. https://github.com/codepath/android_guides/wiki/Must-Have-Libraries
 2. https://github.com/futurice/android-best-practices
 3. https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html
 4. https://medium.com/@dmilicic/a-detailed-guide-on-developing-android-apps-using-the-clean-architecture-pattern-d38d71e94029#.8b4imw33h
 5. http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/
+6. https://market.mashape.com/thundercomb/poetry-db#
