@@ -1,6 +1,5 @@
 # android-mvp-architecture
-![clean architecture](https://blog.8thlight.com/assets/posts/2012-08-13-the-clean-architecture/CleanArchitecture-81565aba46f035911a5018e77a0f2d4e.jpg)
-
+## Libraries
 In this sample project includes some of useful libraries for Android, such as:
 - [Retrofit](http://square.github.io/retrofit/): A type-safe REST client for Android which intelligently maps an API into a client interface using annotations.
 - [Picasso](http://square.github.io/picasso/): A powerful image downloading and caching library for Android.
@@ -8,6 +7,9 @@ In this sample project includes some of useful libraries for Android, such as:
 - [LeakCanary](http://github.com/square/leakcanary): Catch memory leaks in your apps
 - [Material Dialogs](http://github.com/afollestad/material-dialogs): A beautiful, easy-to-use, and customizable dialogs API, enabling you to use Material designed dialogs down to API 8.
 - [CircleImageView](http://github.com/hdodenhof/CircleImageView): A circular ImageView for Android
+
+## The Clean Architecture
+![clean architecture](https://blog.8thlight.com/assets/posts/2012-08-13-the-clean-architecture/CleanArchitecture-81565aba46f035911a5018e77a0f2d4e.jpg)
 
 Before we go through to learn this architecture, I hope you've understand about the **Clean Architecture** (from [Uncle Bob](https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html), [Dario Miličić](https://medium.com/@dmilicic/a-detailed-guide-on-developing-android-apps-using-the-clean-architecture-pattern-d38d71e94029#.8b4imw33h), and [Android10](http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/)). This architecture is the simple combination from those references. So, this architecture makes your code:
 - **Independent of Frameworks.**
