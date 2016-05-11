@@ -1,9 +1,14 @@
 package com.nandawperdana.poetryandroidmvp.ui.about;
 
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +22,7 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AboutActivity extends AppCompatActivity implements AboutPresenter.AboutView {
@@ -25,8 +31,12 @@ public class AboutActivity extends AppCompatActivity implements AboutPresenter.A
 
     @Bind(R.id.textview_about)
     TextView textView;
+    @Bind(R.id.textview_about_version)
+    TextView textViewVersion;
     @Bind(R.id.imageview_about)
     CircleImageView imageView;
+    @Bind(R.id.layout_about_github)
+    LinearLayout lsyoutGithub;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,11 +122,29 @@ public class AboutActivity extends AppCompatActivity implements AboutPresenter.A
     }
 
     private void showAbout() {
-        String url = "http://graph.facebook.com/1399656618/picture?type=square";
+        String url = "https://graph.facebook.com/1399656618/picture?type=large";
         Picasso.with(AboutActivity.this)
                 .load(url)
                 .error(R.drawable.ic_blank_avatar)
                 .placeholder(R.drawable.ic_blank_avatar)
                 .into(imageView);
+
+        PackageInfo pInfo;
+        String version = null;
+        try {
+            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            version = pInfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        textViewVersion.setText("Version: " + version);
+    }
+
+    @OnClick(R.id.layout_about_github)
+    public void onClickGithub() {
+        String url = "http://github.com/nandawperdana/android-mvp-architecture";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
 }

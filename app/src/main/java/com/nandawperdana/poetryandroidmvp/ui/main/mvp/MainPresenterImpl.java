@@ -4,8 +4,7 @@ import com.nandawperdana.poetryandroidmvp.api.APICallListener;
 import com.nandawperdana.poetryandroidmvp.api.RootResponseModel;
 import com.nandawperdana.poetryandroidmvp.api.author.AuthorPoetsModel;
 import com.nandawperdana.poetryandroidmvp.api.author.AuthorsModel;
-import com.nandawperdana.poetryandroidmvp.domains.interactors.GetAuthorPoetsInteractor;
-import com.nandawperdana.poetryandroidmvp.domains.interactors.GetAuthorsInteractor;
+import com.nandawperdana.poetryandroidmvp.domains.interactors.AuthorsInteractor;
 import com.nandawperdana.poetryandroidmvp.presentation.presenters.MainPresenter;
 import com.nandawperdana.poetryandroidmvp.utils.Enums;
 
@@ -16,13 +15,11 @@ import java.util.List;
  */
 public class MainPresenterImpl implements MainPresenter, APICallListener {
     private MainView mView;
-    private GetAuthorsInteractor mGetAuthorsInteractor;
-    private GetAuthorPoetsInteractor mGetAuthorPoetsInteractor;
+    private AuthorsInteractor mAuthorsInteractor;
 
     public MainPresenterImpl(MainView mView) {
         this.mView = mView;
-        this.mGetAuthorsInteractor = new GetAuthorsInteractor(this);
-        this.mGetAuthorPoetsInteractor = new GetAuthorPoetsInteractor(this);
+        this.mAuthorsInteractor = new AuthorsInteractor(this);
     }
 
     @Override
@@ -36,14 +33,14 @@ public class MainPresenterImpl implements MainPresenter, APICallListener {
                 break;
             case LOAD_GET_AUTHORS:
                 presentState(MainView.ViewState.LOADING);
-                mGetAuthorsInteractor.callAPIGetAuthor();
+                mAuthorsInteractor.callAPIGetAuthor();
                 break;
             case SHOW_GET_AUTHORS:
                 mView.showState(MainView.ViewState.SHOW_GET_AUTHORS);
                 break;
             case LOAD_GET_AUTHOR_POETS:
                 presentState(MainView.ViewState.LOADING);
-                mGetAuthorPoetsInteractor.callAPIGetAuthorPoets(mView.doRetrieveModel().getAuthorName());
+                mAuthorsInteractor.callAPIGetAuthorPoets(mView.doRetrieveModel().getAuthorName());
                 break;
             case SHOW_GET_AUTHOR_POETS:
                 mView.showState(MainView.ViewState.SHOW_GET_AUTHOR_POETS);

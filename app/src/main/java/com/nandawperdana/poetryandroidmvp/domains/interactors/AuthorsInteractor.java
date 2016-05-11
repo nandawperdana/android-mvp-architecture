@@ -4,6 +4,7 @@ import com.nandawperdana.poetryandroidmvp.api.APICallListener;
 import com.nandawperdana.poetryandroidmvp.api.APICallManager;
 import com.nandawperdana.poetryandroidmvp.api.RootResponseModel;
 import com.nandawperdana.poetryandroidmvp.api.author.AuthorPoetsModel;
+import com.nandawperdana.poetryandroidmvp.api.author.AuthorsModel;
 import com.nandawperdana.poetryandroidmvp.utils.Enums;
 
 import java.util.ArrayList;
@@ -14,13 +15,29 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by nandawperdana on 4/22/2016.
+ * Created by nandawperdana on 4/21/2016.
  */
-public class GetAuthorPoetsInteractor implements Interactor {
+public class AuthorsInteractor implements Interactor {
     APICallListener listener;
 
-    public GetAuthorPoetsInteractor(APICallListener listener) {
+    public AuthorsInteractor(APICallListener listener) {
         this.listener = listener;
+    }
+
+    public void callAPIGetAuthor() {
+        final Enums.APIRoute route = Enums.APIRoute.GET_AUTHORS;
+        Call<AuthorsModel> call = APICallManager.getInstance().authorManager.getAuthor();
+        call.enqueue(new Callback<AuthorsModel>() {
+            @Override
+            public void onResponse(Call<AuthorsModel> call, Response<AuthorsModel> response) {
+                listener.onAPICallSucceed(route, response.body());
+            }
+
+            @Override
+            public void onFailure(Call<AuthorsModel> call, Throwable t) {
+                listener.onAPICallFailed(route, t);
+            }
+        });
     }
 
     public void callAPIGetAuthorPoets(String authorName) {
