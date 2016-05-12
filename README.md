@@ -20,6 +20,7 @@ Before we go through to learn this architecture, I hope you've understand about 
 
 ## Sample API
 This project using sample API from Mashape Free API: [Poetry DB](https://market.mashape.com/thundercomb/poetry-db#)
+![screenshoot](https://cloud.githubusercontent.com/assets/5654040/15206486/cde22fc2-1849-11e6-95eb-8bbf16828da0.png)
 
 ## Links, Resources and References
 1. https://github.com/codepath/android_guides/wiki/Must-Have-Libraries
