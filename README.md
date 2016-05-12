@@ -1,4 +1,6 @@
 # android-mvp-architecture
+A sample project of Android MVP architecture.
+
 ## Libraries
 In this sample project includes some of useful libraries for Android, such as:
 - [Retrofit](http://square.github.io/retrofit/): A type-safe REST client for Android which intelligently maps an API into a client interface using annotations.
