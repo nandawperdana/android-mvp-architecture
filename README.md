@@ -11,7 +11,7 @@ In this sample project includes some of useful libraries for Android, such as:
 - [CircleImageView](http://github.com/hdodenhof/CircleImageView): A circular ImageView for Android
 
 ## The Clean Architecture
-![clean architecture](https://blog.8thlight.com/assets/posts/2012-08-13-the-clean-architecture/CleanArchitecture-81565aba46f035911a5018e77a0f2d4e.jpg)
+![clean architecture](https://8thlight.com/blog/assets/posts/2012-08-13-the-clean-architecture/CleanArchitecture-8b00a9d7e2543fa9ca76b81b05066629.jpg)
 
 Before we go through to learn this architecture, I hope you've understand about the **Clean Architecture** (from [Uncle Bob](https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html), [Dario Miličić](https://medium.com/@dmilicic/a-detailed-guide-on-developing-android-apps-using-the-clean-architecture-pattern-d38d71e94029#.8b4imw33h), and [Android10](http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/)). This architecture is the simple combination from those references. So, this architecture makes your code:
 - **Independent of Frameworks.**
@@ -21,8 +21,9 @@ Before we go through to learn this architecture, I hope you've understand about 
 - **Independent of any external agency.**
 
 ## Sample API
-This project using sample API from Mashape Free API: [Poetry DB](https://market.mashape.com/thundercomb/poetry-db#)
-![screenshoot](https://cloud.githubusercontent.com/assets/5654040/15206486/cde22fc2-1849-11e6-95eb-8bbf16828da0.png)
+This project using sample API from [AndroidHive](http://api.androidhive.info/contacts/)
+
+![screenshoot](https://raw.githubusercontent.com/nandawperdana/android-mvp-architecture/master/screenshot/screenshot.png)
 
 ## Links, Resources and References
 1. https://github.com/codepath/android_guides/wiki/Must-Have-Libraries
@@ -30,4 +31,3 @@ This project using sample API from Mashape Free API: [Poetry DB](https://market.
 3. https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html
 4. https://medium.com/@dmilicic/a-detailed-guide-on-developing-android-apps-using-the-clean-architecture-pattern-d38d71e94029#.8b4imw33h
 5. http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/
-6. https://market.mashape.com/thundercomb/poetry-db#
