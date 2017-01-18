@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bone_white"
-    tools:context="com.nandawperdana.poetryandroidmvp.ui.about.AboutActivity">
+    tools:context=".presentation.ui.screen.about.AboutActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageview_about"

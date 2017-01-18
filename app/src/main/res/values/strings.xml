@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Poetry Android MVP</string>
+    <string name="app_name">Android MVP</string>
     <string name="activity_main">Authors</string>
     <string name="activity_about">About</string>
 

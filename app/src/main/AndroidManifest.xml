@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nandawperdana.poetryandroidmvp">
+    package="com.nandawperdana.androidmvp">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".application.PoetryApplication"
+        android:name="com.nandawperdana.androidmvp.application.AndroidApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".presentation.ui.screen.main.MainActivity"
             android:label="@string/activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,12 +20,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.about.AboutActivity"
+            android:name=".presentation.ui.screen.about.AboutActivity"
             android:label="@string/activity_about">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.main.MainActivity" />
+                android:value=".presentation.ui.screen.main.MainActivity" />
         </activity>
     </application>
 
