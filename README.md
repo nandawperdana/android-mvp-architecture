@@ -23,7 +23,7 @@ Before we go through to learn this architecture, I hope you've understand about 
 ## Sample API
 This project using sample API from [My Site](http://api.nandawperdana.com/people.json)
 
-![screenshoot](https://raw.githubusercontent.com/nandawperdana/android-mvp-architecture/master/screenshot/screenshot.png)
+![screenshoot](https://github.com/nandawperdana/android-mvp-architecture/blob/master/screenshot/ss.png)
 
 ## Links, Resources and References
 1. https://github.com/codepath/android_guides/wiki/Must-Have-Libraries
