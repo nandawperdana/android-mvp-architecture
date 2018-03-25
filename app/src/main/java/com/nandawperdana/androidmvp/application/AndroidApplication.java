@@ -1,19 +1,38 @@
 package com.nandawperdana.androidmvp.application;
 
 import android.app.Application;
-
-import com.squareup.leakcanary.LeakCanary;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
 /**
  * Created by nandawperdana on 4/21/2016.
  */
 public class AndroidApplication extends Application {
+    private static AndroidApplication mInstance;
+    private boolean connected = false;
 
     @Override
     public void onCreate() {
         super.onCreate();
-
-        // leak canary install
-        LeakCanary.install(this);
+        mInstance = this;
     }
+
+    public static synchronized AndroidApplication getInstance() {
+        return mInstance;
+    }
+
+    public boolean isConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getApplicationContext()
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+    }
+
+    public void setConnected(boolean connected) {
+        this.connected = connected;
+    }
+
+
 }

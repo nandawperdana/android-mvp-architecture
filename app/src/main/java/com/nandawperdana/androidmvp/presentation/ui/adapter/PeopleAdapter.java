@@ -8,24 +8,24 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nandawperdana.androidmvp.R;
-import com.nandawperdana.androidmvp.api.contact.ContactsModel;
+import com.nandawperdana.androidmvp.api.people.People;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by nandawperdana on 4/25/2016.
  */
-public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHolder> {
-    private List<ContactsModel.Contact> listContact;
+public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.ViewHolder> {
+    private List<People> listPeople;
     private Context mContext;
 
-    public ContactAdapter(List<ContactsModel.Contact> listContact, Context mContext) {
-        this.listContact = listContact;
+    public PeopleAdapter(List<People> listPeople, Context mContext) {
+        this.listPeople = listPeople;
         this.mContext = mContext;
     }
 
@@ -40,23 +40,23 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.bindView(mContext, listContact.get(position));
+        holder.bindView(mContext, listPeople.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return listContact.size();
+        return listPeople.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.imageview_row_main)
+    class ViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.imageview_row_main)
         CircleImageView imageView;
-        @Bind(R.id.textview_row_main)
+        @BindView(R.id.textview_row_main)
         TextView textView;
-        @Bind(R.id.textview_row_main_subtitle)
+        @BindView(R.id.textview_row_main_subtitle)
         TextView textViewSubtitle;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             initLayout(itemView);
         }
@@ -65,13 +65,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
             ButterKnife.bind(this, view);
         }
 
-        public void bindView(Context context, ContactsModel.Contact data) {
+        void bindView(Context context, People data) {
             if (data.getName() != null)
                 textView.setText(data.getName());
             if (data.getEmail() != null)
                 textViewSubtitle.setText(data.getEmail());
 
-            String url = "http://graph.facebook.com/1399656618/picture?type=square";
+            String url = data.getPic();
             Picasso.with(context)
                     .load(url)
                     .error(R.drawable.ic_blank_avatar)

@@ -20,7 +20,7 @@ import com.nandawperdana.androidmvp.presentation.ui.screen.about.mvp.AboutModel;
 import com.nandawperdana.androidmvp.presentation.ui.screen.about.mvp.AboutPresenterImpl;
 import com.squareup.picasso.Picasso;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -29,13 +29,13 @@ public class AboutActivity extends AppCompatActivity implements AboutPresenter.A
     private AboutPresenter mPresenter;
     private AboutModel mModel;
 
-    @Bind(R.id.textview_about)
+    @BindView(R.id.textview_about)
     TextView textView;
-    @Bind(R.id.textview_about_version)
+    @BindView(R.id.textview_about_version)
     TextView textViewVersion;
-    @Bind(R.id.imageview_about)
+    @BindView(R.id.imageview_about)
     CircleImageView imageView;
-    @Bind(R.id.layout_about_github)
+    @BindView(R.id.layout_about_github)
     LinearLayout lsyoutGithub;
 
     @Override

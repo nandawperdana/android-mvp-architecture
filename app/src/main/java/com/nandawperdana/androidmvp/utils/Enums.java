@@ -9,6 +9,6 @@ public class Enums {
     }
 
     public enum APIRoute {
-        GET_CONTACTS
+        GET_PEOPLE
     }
 }

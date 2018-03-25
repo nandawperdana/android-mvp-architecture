@@ -21,7 +21,7 @@ Before we go through to learn this architecture, I hope you've understand about 
 - **Independent of any external agency.**
 
 ## Sample API
-This project using sample API from [AndroidHive](http://api.androidhive.info/contacts/)
+This project using sample API from [AndroidHive](http://api.androidhive.info/people/)
 
 ![screenshoot](https://raw.githubusercontent.com/nandawperdana/android-mvp-architecture/master/screenshot/screenshot.png)
 

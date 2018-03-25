@@ -15,8 +15,8 @@ public interface MainPresenter extends BasePresenter {
          */
         enum ViewState {
             IDLE, LOADING,
-            LOAD_GET_CONTACTS, SHOW_GET_CONTACTS,
-            OPEN_ACTIVITY_ABOUT, ERROR
+            LOAD_PEOPLE, SHOW_PEOPLE,
+            OPEN_ABOUT, ERROR
         }
 
         /**
