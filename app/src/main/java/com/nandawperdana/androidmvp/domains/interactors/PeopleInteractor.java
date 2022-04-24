@@ -22,7 +22,7 @@ public class PeopleInteractor implements Interactor {
 
     public void callAPIGetContacts() {
         final Enums.APIRoute route = Enums.APIRoute.GET_PEOPLE;
-        Call<PeopleResponse> call = APICallManager.getInstance().peopleManager.getContacts();
+        Call<PeopleResponse> call = APICallManager.getInstance().peopleManager.getPeople();
         call.enqueue(new Callback<PeopleResponse>() {
             @Override
             public void onResponse(Call<PeopleResponse> call, Response<PeopleResponse> response) {

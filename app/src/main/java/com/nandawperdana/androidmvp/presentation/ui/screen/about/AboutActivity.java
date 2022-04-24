@@ -5,14 +5,13 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.afollestad.materialdialogs.DialogAction;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.nandawperdana.androidmvp.R;
 import com.nandawperdana.androidmvp.presentation.presenters.AboutPresenter;
@@ -104,26 +103,22 @@ public class AboutActivity extends AppCompatActivity implements AboutPresenter.A
 
     @Override
     public void showError(String title, String message) {
-        new MaterialDialog.Builder(AboutActivity.this)
-                .title(title)
-                .content(message)
-                .positiveText(R.string.error_dialog_positive)
-                .onPositive(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        dialog.dismiss();
-                    }
+
+        new MaterialDialog(this, MaterialDialog.getDEFAULT_BEHAVIOR())
+                .title(null, title)
+                .message(null, message, null)
+                .positiveButton(R.string.error_dialog_positive, null, materialDialog -> {
+                    materialDialog.dismiss();
+                    return null;
                 })
-                .autoDismiss(false)
+                .noAutoDismiss()
                 .cancelable(false)
-                .contentColor(getResources().getColor(R.color.dark))
-                .backgroundColorRes(R.color.bone_white)
                 .show();
     }
 
     private void showAbout() {
         String url = "https://graph.facebook.com/1399656618/picture?type=large";
-        Picasso.with(AboutActivity.this)
+        Picasso.get()
                 .load(url)
                 .error(R.drawable.ic_blank_avatar)
                 .placeholder(R.drawable.ic_blank_avatar)

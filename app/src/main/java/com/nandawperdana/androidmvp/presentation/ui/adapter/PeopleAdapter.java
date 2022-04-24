@@ -1,11 +1,12 @@
 package com.nandawperdana.androidmvp.presentation.ui.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.nandawperdana.androidmvp.R;
 import com.nandawperdana.androidmvp.api.people.People;
@@ -72,7 +73,7 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.ViewHolder
                 textViewSubtitle.setText(data.getEmail());
 
             String url = data.getPic();
-            Picasso.with(context)
+            Picasso.get()
                     .load(url)
                     .error(R.drawable.ic_blank_avatar)
                     .placeholder(R.drawable.ic_blank_avatar)

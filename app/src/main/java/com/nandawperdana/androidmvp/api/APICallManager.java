@@ -66,7 +66,7 @@ public class APICallManager {
             this.service = getService(PeopleService.class);
         }
 
-        public Call<PeopleResponse> getContacts() {
+        public Call<PeopleResponse> getPeople() {
             return service.getPeople();
         }
     }

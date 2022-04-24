@@ -5,6 +5,6 @@ package com.nandawperdana.androidmvp.utils;
  */
 public class Constants {
     public class Path {
-        public static final String DEFAULT_URL_API_PRODUCTION = "http://api.nandawperdana.com";
+        public static final String DEFAULT_URL_API_PRODUCTION = "https://nandawperdana.com";
     }
 }

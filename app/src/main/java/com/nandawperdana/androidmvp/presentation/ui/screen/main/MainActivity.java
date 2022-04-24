@@ -2,14 +2,15 @@ package com.nandawperdana.androidmvp.presentation.ui.screen.main;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.nandawperdana.androidmvp.R;
 import com.nandawperdana.androidmvp.presentation.presenters.MainPresenter;

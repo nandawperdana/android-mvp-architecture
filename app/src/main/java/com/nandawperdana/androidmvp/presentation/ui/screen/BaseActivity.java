@@ -3,16 +3,15 @@ package com.nandawperdana.androidmvp.presentation.ui.screen;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.PersistableBundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.afollestad.materialdialogs.DialogAction;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.android.material.snackbar.Snackbar;
 import com.nandawperdana.androidmvp.R;
 import com.nandawperdana.androidmvp.presentation.presenters.base.BaseView;
 
@@ -44,28 +43,23 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),
                 message, Snackbar.LENGTH_SHORT);
         View sbView = snackbar.getView();
-        TextView textView = (TextView) sbView
-                .findViewById(android.support.design.R.id.snackbar_text);
+        TextView textView = sbView
+                .findViewById(com.google.android.material.R.id.snackbar_text);
         textView.setTextColor(ContextCompat.getColor(this, R.color.white));
         snackbar.show();
     }
 
     @Override
     public void showError(String title, String message) {
-        new MaterialDialog.Builder(getApplicationContext())
-                .title(title)
-                .content(message)
-                .positiveText(R.string.error_dialog_positive)
-                .onPositive(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        dialog.dismiss();
-                    }
+        new MaterialDialog(this, MaterialDialog.getDEFAULT_BEHAVIOR())
+                .title(null, title)
+                .message(null, message, null)
+                .positiveButton(R.string.error_dialog_positive, null, materialDialog -> {
+                    materialDialog.dismiss();
+                    return null;
                 })
-                .autoDismiss(false)
+                .noAutoDismiss()
                 .cancelable(false)
-                .contentColor(getResources().getColor(R.color.dark))
-                .backgroundColorRes(R.color.bone_white)
                 .show();
     }
 }
